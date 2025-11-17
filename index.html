@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dimensión Inversa Loca — Retro 90s</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <div id="floating" class="floating" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="container">
+        <h1 class="title">🎪 DIMENSIÓN INVERSA LOCA 🎪</h1>
+        <p class="subtitle">⚠️ CONTROLES INVERSOS — ¡TODO HACE LO CONTRARIO! ⚠️</p>
+      </div>
+    </header>
+
+    <main class="container main">
+      <!-- Panel que huye -->
+      <section id="panel1" class="card runaway" data-id="panel1">
+        <h2>¡Intenta acercarte a mí! 🏃‍♂️</h2>
+        <p>Cuando te acerques... ¡HUIRÉ!</p>
+      </section>
+
+      <!-- Panel con botones (inversos) -->
+      <section id="panel2" class="card runaway" data-id="panel2">
+        <h3>Panel Mágico (los botones hacen lo contrario)</h3>
+        <div class="actions">
+          <!-- Nota: ABRIR en realidad CERRARÁ -->
+          <button id="openPanel" class="btn btn-green">ABRIR Panel</button>
+          <!-- CERRAR en realidad ABRIRÁ -->
+          <button id="closePanel" class="btn btn-red">CERRAR Panel</button>
+        </div>
+        <div id="panelContent" class="panel-content closed">
+          <p>🎉 <strong id="panelState">CERRADO</strong></p>
+        </div>
+      </section>
+
+      <!-- Contador invertido -->
+      <section id="counterCard" class="card runaway" data-id="counter">
+        <h3>Contador Inverso</h3>
+        <div class="counter-row">
+          <!-- Este botón mostrará '+ Aumentar' pero hará lo inverso -->
+          <button id="inc" class="btn btn-blue">+ Aumentar</button>
+          <div id="counter" class="counter">0</div>
+          <button id="dec" class="btn btn-red">- Disminuir</button>
+        </div>
+        <p class="muted">Nota: los botones hacen exactamente lo contrario.</p>
+      </section>
+
+      <!-- Volumen invertido -->
+      <section id="volumeCard" class="card runaway" data-id="volume">
+        <h3>Control de Volumen (INVERTIDO)</h3>
+        <div class="volume-row">
+          <span id="volumeLabel">Volumen: 50%</span>
+          <!-- Botón de silencio hace lo contrario -->
+          <button id="muteBtn" class="btn btn-indigo">Silenciar</button>
+        </div>
+        <input id="volumeRange" type="range" min="0" max="100" value="50" />
+        <p class="muted">Mover el slider aumenta/evita el volumen real de forma INVERSA.</p>
+      </section>
+
+      <!-- Tema psicodélico invertido -->
+      <section id="themeCard" class="card runaway" data-id="theme">
+        <h3>Tema Psicodélico (INVERTIDO)</h3>
+        <div class="actions">
+          <button id="themeToggle" class="btn">Modo Oscuro</button>
+          <span id="themeState">🌙 Tema: CLARO</span>
+        </div>
+      </section>
+
+      <!-- Botones caóticos que responden al revés -->
+      <section id="buttonsCard" class="card runaway" data-id="buttons">
+        <h3>Zona de Decisiones Caóticas</h3>
+        <div class="grid-2">
+          <button id="yesBtn" class="btn chaotic">✓ SÍ</button>
+          <button id="noBtn" class="btn chaotic">✗ NO</button>
+          <button id="byeBtn" class="btn chaotic">👋 ADIÓS</button>
+          <button id="hiBtn" class="btn chaotic">👋 HOLA</button>
+        </div>
+        <p class="muted">Los mensajes y estados se invierten on purpose.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>💾 Creado en el multiverso loco — Retro 90s 💾</p>
+    </footer>
+
+    <!-- Toast container -->
+    <div id="toast" class="toast-area" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
