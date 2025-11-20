@@ -1,5 +1,4 @@
-// script.js - Dimensión Inversa Loca (controles invertidos)
-// Asegúrate que index.html, style.css y script.js están en la misma carpeta.
+
 
 console.log('JS cargado correctamente — Dimensión Inversa Loca');
 
