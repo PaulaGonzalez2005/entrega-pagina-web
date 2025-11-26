@@ -227,3 +227,86 @@ document.addEventListener('keydown', (e) => {
 
 // Mensaje de bienvenida
 showToast('Bienvenido a la Dimensión Inversa Loca — todo hace lo contrario', 2200);
+
+const canvas = document.getElementById("scratchCanvas");
+const percentText = document.getElementById("scratchPercent");
+const resetBtn = document.getElementById("scratchReset");
+
+if (canvas) {
+  const ctx = canvas.getContext("2d");
+  let scratching = false;
+
+  // Fondo gris simulado
+  function drawOverlay() {
+    ctx.fillStyle = "#e5e7eb";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#d1d5db";
+    for (let i = 0; i < 50; i++) {
+      ctx.fillRect(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height,
+        2,
+        2
+      );
+    }
+  }
+
+  drawOverlay();
+
+  function scratch(x, y) {
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.arc(x, y, 30, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalCompositeOperation = "source-over";
+
+    // Calcular porcentaje
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const pixels = imgData.data;
+    let transparent = 0;
+
+    for (let i = 3; i < pixels.length; i += 4) {
+      if (pixels[i] < 128) transparent++;
+    }
+
+    const percent = Math.round(
+      (transparent / (pixels.length / 4)) * 100
+    );
+
+    percentText.textContent = percent + "%";
+  }
+
+  function handleMove(e) {
+    const rect = canvas.getBoundingClientRect();
+    let x, y;
+
+    if (e.touches) {
+      x = e.touches[0].clientX - rect.left;
+      y = e.touches[0].clientY - rect.top;
+    } else {
+      x = e.clientX - rect.left;
+      y = e.clientY - rect.top;
+    }
+
+    scratch(x, y);
+  }
+
+  canvas.addEventListener("mousedown", () => (scratching = true));
+  canvas.addEventListener("mouseup", () => (scratching = false));
+  canvas.addEventListener("mouseleave", () => (scratching = false));
+  canvas.addEventListener("mousemove", e => scratching && handleMove(e));
+
+  canvas.addEventListener("touchstart", e => {
+    scratching = true;
+    handleMove(e);
+  });
+
+  canvas.addEventListener("touchmove", e => scratching && handleMove(e));
+  canvas.addEventListener("touchend", () => (scratching = false));
+
+  resetBtn.addEventListener("click", () => {
+    drawOverlay();
+    percentText.textContent = "0%";
+  });
+}
+

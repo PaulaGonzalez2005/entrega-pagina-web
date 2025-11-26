@@ -42,7 +42,6 @@
       <section id="counterCard" class="card runaway" data-id="counter">
         <h3>Contador Inverso</h3>
         <div class="counter-row">
-          <!-- Este botón mostrará '+ Aumentar' pero hará lo inverso -->
           <button id="inc" class="btn btn-blue">+ Aumentar</button>
           <div id="counter" class="counter">0</div>
           <button id="dec" class="btn btn-red">- Disminuir</button>
@@ -55,7 +54,6 @@
         <h3>Control de Volumen (INVERTIDO)</h3>
         <div class="volume-row">
           <span id="volumeLabel">Volumen: 50%</span>
-          <!-- Botón de silencio hace lo contrario -->
           <button id="muteBtn" class="btn btn-indigo">Silenciar</button>
         </div>
         <input id="volumeRange" type="range" min="0" max="100" value="50" />
@@ -71,7 +69,7 @@
         </div>
       </section>
 
-      <!-- Botones caóticos que responden al revés -->
+      <!-- Botones caóticos -->
       <section id="buttonsCard" class="card runaway" data-id="buttons">
         <h3>Zona de Decisiones Caóticas</h3>
         <div class="grid-2">
@@ -82,13 +80,35 @@
         </div>
         <p class="muted">Los mensajes y estados se invierten on purpose.</p>
       </section>
+
+      <!-- Tarjeta: Scratch Reveal -->
+      <div class="card">
+        <h3>Reto de Raspado</h3>
+        <p>Raspa el área para revelar la imagen oculta.</p>
+
+        <div class="scratch-container">
+          <div class="scratch-image">
+            <img src="./Frame337.png" alt="Imagen oculta">
+          </div>
+
+          <canvas id="scratchCanvas" width="674" height="454"></canvas>
+        </div>
+
+        <div class="scratch-footer">
+          <span>Revelado: <span id="scratchPercent">0%</span></span>
+
+          <button id="scratchReset" class="reset-btn">
+            Reiniciar
+          </button>
+        </div>
+      </div>
+
     </main>
 
     <footer class="footer">
       <p>💾 Creado en el multiverso loco — Retro 90s 💾</p>
     </footer>
 
-    <!-- Toast container -->
     <div id="toast" class="toast-area" aria-live="polite"></div>
   </div>
 
