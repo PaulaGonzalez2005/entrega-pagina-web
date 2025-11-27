@@ -104,13 +104,13 @@ openPanel.addEventListener('click', () => {
   // 'ABRIR Panel' en realidad CERRARÁ
   isOpen = false;
   updatePanel();
-  showToast('¡Panel CERRADO (porque todo está al revés)!', 1800);
+  showToast('“Interesante elección: tu sombra acaba de solicitar aumento y un sindicato.”', 1800);
 });
 closePanel.addEventListener('click', () => {
   // 'CERRAR Panel' en realidad ABRIRÁ
   isOpen = true;
   updatePanel();
-  showToast('¡Panel ABIERTO (esto es al revés)!', 1800);
+  showToast('“Perfecto, tu sombra te acaba de poner un 7/10 en estilo… dice que practiques el giro final.”', 1800);
 });
 function updatePanel(){
   if(isOpen){
@@ -188,22 +188,22 @@ const hiBtn = document.getElementById('hiBtn');
 if (yesBtn && noBtn && byeBtn && hiBtn) {
   yesBtn.addEventListener('click', () => {
     // El usuario hace clic en "SÍ" -> respondemos "NO"
-    showToast('❌ NO (respuesta invertida)', 1200);
+    showToast('Lenta pero despierta', 1200);
     yesBtn.style.background = crazyColors[Math.floor(Math.random()*crazyColors.length)];
   });
   noBtn.addEventListener('click', () => {
     // Clic en "NO" -> respondemos "SÍ"
-    showToast('✅ SÍ (respuesta invertida)', 1200);
+    showToast('✅ SÍ (reBrillante pero confundida', 1200);
     noBtn.style.background = crazyColors[Math.floor(Math.random()*crazyColors.length)];
   });
   byeBtn.addEventListener('click', () => {
     // ADIÓS -> saludamos (inverso)
-    showToast('👋 ¡Hola! (te saludo en vez de despedirte)', 1200);
+    showToast('Silenciosa pero escandalosa', 1200);
     byeBtn.style.background = crazyColors[Math.floor(Math.random()*crazyColors.length)];
   });
   hiBtn.addEventListener('click', () => {
     // HOLA -> nos vamos (inverso)
-    showToast('😢 ¡Adiós! (respondiendo al revés)', 1200);
+    showToast('Seria pero chistosa', 1200);
     hiBtn.style.background = crazyColors[Math.floor(Math.random()*crazyColors.length)];
   });
 }
@@ -238,9 +238,9 @@ if (canvas) {
 
   // Fondo gris simulado
   function drawOverlay() {
-    ctx.fillStyle = "#e5e7eb";
+    ctx.fillStyle = "#6095ffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#d1d5db";
+    ctx.fillStyle = "#5c9dffff";
     for (let i = 0; i < 50; i++) {
       ctx.fillRect(
         Math.random() * canvas.width,
